@@ -23,6 +23,12 @@ git clone --depth 1 https://github.com/AstroNvim/AstroNvim ~/.config/nvim
 git clone https://github.com/soutoner/astronvim-config ~/.config/astronvim/lua/user
 ```
 
+Or link it
+
+```shell
+ln -s ~/astronvim-config ~/.config/astronvim/lua/user
+```
+
 #### Start Neovim
 
 ```shell
