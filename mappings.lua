@@ -24,6 +24,16 @@ return {
     ["N"] = { "Nzzzv" },
     -- vim-fugitive
     ["<leader>gs"] = { "<cmd>Git<cr>", desc = { "[G]it [S]tatus" } },
+    -- git-signs
+    ["<leader>gh"] = false,
+    ["]g"] = false,
+    ["[g"] = false,
+    ["]h"] = { require("gitsigns").next_hunk, desc = "[N]ext Git [H]unk" },
+    ["[h"] = { require("gitsigns").prev_hunk, desc = "[P]revious Git [H]unk" },
+    ["<leader>hr"] = { require("gitsigns").reset_hunk, desc = "Git [H]unk [R]eset" },
+    -- lsp
+    ["<leader>la"] = false,
+    ["<leader>ca"] = { vim.lsp.buf.code_action, desc = "[C]ode [A]ctions" },
     -- telescope
     ["<leader>lD"] = false,
     ["<leader>f'"] = false,
@@ -61,6 +71,9 @@ return {
     -- splits tmux like
     ["<C-W>-"] = { "<cmd>split<cr>", desc = "[-] Horizontal split" },
     ["<C-W>\\"] = { "<cmd>vsplit<cr>", desc = "[\\] Vertical split" },
+    -- harpoon
+    ["<leader>ha"] = { require("harpoon.mark").add_file, desc = "[H]arpoon [A]dd file" },
+    ["<leader>hf"] = { require("harpoon.ui").toggle_quick_menu, desc = "[H]arpoon [F]iles" },
   },
   v = {
     -- Move lines around

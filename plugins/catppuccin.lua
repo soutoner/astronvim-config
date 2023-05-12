@@ -6,8 +6,8 @@ return {
       flavour = "mocha",
       dim_inactive = {
         enabled = true,
-        shade = "dark",
-        percentage = 0.15,
+        shade = "light",
+        percentage = 0.25,
       },
       integrations = {
         cmp = true,
