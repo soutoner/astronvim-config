@@ -1,10 +1,15 @@
 local telescope_builtin = require "telescope.builtin"
 local smart_splits = require "smart-splits"
+local gitsigns = require "gitsigns"
 
 return {
   n = {
-    -- Buffers
+    -- Categories
+    ["<leader>s"] = { name = "Search" },
     ["<leader>b"] = { name = "Buffers" },
+    ["<leader>t"] = { name = "Telescope" },
+    ["<leader>v"] = { name = "View" },
+    -- Buffers
     ["<leader>bn"] = { "<cmd>tabnew<cr>", desc = "New tab" },
     ["<leader>bD"] = {
       function()
@@ -24,13 +29,19 @@ return {
     ["N"] = { "Nzzzv" },
     -- vim-fugitive
     ["<leader>gs"] = { "<cmd>Git<cr>", desc = { "[G]it [S]tatus" } },
+    ["<leader>gl"] = { "<cmd>Git log<cr>", desc = { "[G]it [L]og" } },
     -- git-signs
     ["<leader>gh"] = false,
     ["]g"] = false,
     ["[g"] = false,
-    ["]h"] = { require("gitsigns").next_hunk, desc = "[N]ext Git [H]unk" },
-    ["[h"] = { require("gitsigns").prev_hunk, desc = "[P]revious Git [H]unk" },
-    ["<leader>hr"] = { require("gitsigns").reset_hunk, desc = "Git [H]unk [R]eset" },
+    ["]h"] = { gitsigns.next_hunk, desc = "[N]ext Git [H]unk" },
+    ["[h"] = { gitsigns.prev_hunk, desc = "[P]revious Git [H]unk" },
+    ["<leader>hr"] = { gitsigns.reset_hunk, desc = "Git [H]unk [R]eset" },
+    ["<leader>ga"] = { gitsigns.blame_line, desc = "[G]it [A]nnotate (blame)" },
+    ["<leader>gA"] = {
+      function() gitsigns.blame_line { full = true } end,
+      desc = "Full [G]it [A]nnotate (blame)",
+    },
     -- lsp
     ["<leader>la"] = false,
     ["<leader>ca"] = { vim.lsp.buf.code_action, desc = "[C]ode [A]ctions" },
